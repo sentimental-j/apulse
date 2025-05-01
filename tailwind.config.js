@@ -7,36 +7,36 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: "#0A0A0A",
-        accentPink: "#FFB6C1",
-        accentBronze: "#D4AF37",
+        background: "#141414",
+        "athos-card": "#181818",
+        "athos-accent": "#e6e6e6",
+        "athos-muted": "#232323",
+        "athos-border": "rgba(204,204,204,0.10)", // for those faint card lines
+      },
+      fontFamily: {
+        satoshi: ["Satoshi", "Inter", "sans-serif"],
+      },
+      borderRadius: {
+        athos: "32px", // the big card radius
+        card: "16px", // for splash cards
+        blob: "9999px",
       },
       dropShadow: {
-        'hero-glow': '0 4px 42px rgba(255,182,193,0.36)',
-        'glow': '0 1px 10px rgba(255,182,193,0.1)'
+        'framer-glow': '0 0 24px rgba(255,255,255,0.07)',
       },
       boxShadow: {
-        'frost': '0 2px 24px 0 rgba(212,175,55,0.08), 0 1.5px 6px 0 rgba(10,10,10,0.13)',
+        'athos-card': '0 8px 32px 0 rgba(0,0,0,0.20), 0 1.5px 6px 0 rgba(0,0,0,0.05)',
       },
       keyframes: {
-        'blob-move1': {
-          '0%, 100%': { transform: 'translateY(0) scale(1)' },
-          '50%': { transform: 'translateY(-40px) scale(1.07)' },
-        },
-        'blob-move2': {
-          '0%, 100%': { transform: 'translateY(0) scale(1)' },
-          '40%':     { transform: 'translateY(30px) scale(1.1)' },
-          '80%':     { transform: 'translateY(-20px) scale(0.95)' },
+        'athos-blob-move': {
+          '0%, 100%': { transform: 'scale(1) translateY(0)' },
+          '50%': { transform: 'scale(1.08) translateY(-30px)' },
         }
       },
       animation: {
-        'blob-move1': 'blob-move1 20s ease-in-out infinite',
-        'blob-move2': 'blob-move2 26s ease-in-out infinite',
-      },
-      fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        'athos-blob': 'athos-blob-move 18s ease-in-out infinite',
       }
     },
   },
   plugins: [],
-}
+};
