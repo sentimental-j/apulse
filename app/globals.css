@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Optional custom styles */
 body {
-  scroll-behavior: smooth;
+  @apply bg-background text-white font-sans;
 }
