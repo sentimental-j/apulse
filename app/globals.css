@@ -2,6 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import Satoshi via @font-face if using local font file, else CDN or npm */
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/Satoshi-Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+html {
+  /* Antialiasing for crisp type */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Use min-screen dark bg everywhere for Framer-style consistency */
+  background: #141414;
+}
+
 body {
-  @apply bg-background text-white font-sans;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  color: #e6e6e6;
+  background: #141414;
+  font-family: 'Satoshi', 'Inter', Arial, sans-serif;
+  font-feature-settings: 'ss01', 'cv01', 'cv11';
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #252525;
+  border-radius: 6px;
+}
+
+@layer utilities {
+  .glass {
+    @apply backdrop-blur-lg bg-white/5 border border-white/10;
+  }
+  .matte-glass {
+    @apply backdrop-blur bg-[#181818]/80 border border-white/10;
+  }
 }
