@@ -33,3 +33,4 @@ export function Hero() {
       </motion.a>
     </section>
   );
+}
