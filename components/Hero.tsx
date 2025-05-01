@@ -11,7 +11,8 @@ export function Hero() {
         className="text-5xl md:text-6xl font-extrabold mb-6 tracking-tight bg-gradient-to-tr from-accentPink via-white to-accentBronze bg-clip-text text-transparent drop-shadow-hero-glow"
         style={{ lineHeight: "1.1" }}
       >
-        Your competitors are online.<br />
+        Your competitors are online.
+        <br />
         <span className="inline-block">Why aren’t you?</span>
       </motion.h1>
       <motion.p
@@ -20,7 +21,8 @@ export function Hero() {
         transition={{ delay: 0.25, duration: 0.8, ease: "easeOut" }}
         className="max-w-2xl text-xl md:text-2xl text-neutral-300 mb-8"
       >
-        Build a stunning, AI-generated website for your business in minutes.<br />
+        Build a stunning, AI-generated website for your business in minutes.
+        <br />
         <span className="text-accentPink/80">No code required</span>, premium results.
       </motion.p>
       <motion.a
