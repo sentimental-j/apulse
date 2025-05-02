@@ -1,28 +1,32 @@
-'use client';
+// File: app/page.tsx
 
-import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import NavBar from '@/components/NavBar';
-import Hero from '@/components/Hero';
-
-export default function HomePage() {
+export default function Home() {
   return (
-    <>
-      <NavBar />
-      <main className="flex flex-col items-center px-6 md:px-12 pt-20">
-        <Hero />
+    <main className="min-h-screen w-full px-6 md:px-12 pt-10 md:pt-20 text-white relative">
+      {/* Top Navbar */}
+      <header className="w-full flex items-center justify-between max-w-7xl mx-auto">
+        <div className="text-2xl font-bold tracking-tight">Apulse</div>
+        <button className="bg-white text-black px-5 py-2 rounded-full font-medium hover:scale-105 transition-transform">
+          Start Building
+        </button>
+      </header>
 
-        <section className="w-full max-w-7xl min-h-[500px] mt-16 mb-32 border border-muted/10 rounded-3xl bg-background/30 backdrop-blur-md p-10 text-muted-foreground text-center flex flex-col items-center justify-center">
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-xl"
-          >
-            👷‍♂️ Placeholder for AI chat and mockup engine
-          </motion.p>
-        </section>
-      </main>
-    </>
+      {/* Hero Section */}
+      <section className="mt-32 text-center max-w-4xl mx-auto">
+        <h1 className="text-5xl md:text-6xl font-semibold leading-tight tracking-tight">
+          Your competitors are already online.
+          <br />
+          It's your turn to shine.
+        </h1>
+        <p className="text-lg mt-6 opacity-80 max-w-xl mx-auto">
+          Launch your AI-built website in minutes, not months.
+        </p>
+      </section>
+
+      {/* Placeholder for upcoming components */}
+      <section className="mt-40 mb-20 text-center opacity-40">
+        <p>[ Cards, Mockup Preview, AI Chatbot, etc. coming soon... ]</p>
+      </section>
+    </main>
   );
 }
