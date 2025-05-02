@@ -1,29 +1,28 @@
 'use client';
-import { Hero } from "@/components/Hero";
-import { Features } from "@/components/Features";
-import { FinalCTA } from "@/components/FinalCTA";
-import { AIBuilder } from "@/components/AIBuilder";
 
-export default function Home() {
+import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import NavBar from '@/components/NavBar';
+import Hero from '@/components/Hero';
+
+export default function HomePage() {
   return (
-    <main className="relative min-h-screen bg-background text-white overflow-x-hidden">
-      {/* Abstract blobs */}
-      <div className="fixed -z-10 top-0 left-0 right-0 w-[110vw] h-[110vh] pointer-events-none">
-        <div className="absolute left-[-30vw] top-[-20vh] w-[80vw] h-[80vh] rounded-full blur-3xl opacity-40 bg-gradient-to-tr from-accentPink to-accentBronze mix-blend-lighten animate-blob-move1" />
-        <div className="absolute right-[-40vw] bottom-[-10vh] w-[80vw] h-[80vh] rounded-full blur-3xl opacity-50 bg-gradient-to-tr from-blue-400 to-accentPink mix-blend-screen animate-blob-move2" />
-      </div>
-      {/* Grain overlay */}
-      <div className="fixed inset-0 -z-10 pointer-events-none opacity-50 mix-blend-soft-light">
-        <img src="/grain.svg" alt="" className="w-full h-full object-cover" />
-      </div>
-      <div className="max-w-5xl mx-auto px-6">
+    <>
+      <NavBar />
+      <main className="flex flex-col items-center px-6 md:px-12 pt-20">
         <Hero />
-        <Features />
-        <FinalCTA />
-        <section id="builder" className="mt-32">
-          <AIBuilder />
+
+        <section className="w-full max-w-7xl min-h-[500px] mt-16 mb-32 border border-muted/10 rounded-3xl bg-background/30 backdrop-blur-md p-10 text-muted-foreground text-center flex flex-col items-center justify-center">
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="text-xl"
+          >
+            👷‍♂️ Placeholder for AI chat and mockup engine
+          </motion.p>
         </section>
-      </div>
-    </main>
+      </main>
+    </>
   );
 }
