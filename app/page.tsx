@@ -1,5 +1,3 @@
-// File: app/page.tsx
-
 export default function Home() {
   return (
     <main className="min-h-screen w-full px-6 md:px-12 pt-10 md:pt-20 text-white relative">
