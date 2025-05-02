@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 /* Import Satoshi via @font-face if using local font file, else CDN or npm */
 @font-face {
   font-family: 'Satoshi';
@@ -45,3 +46,20 @@ body {
     @apply backdrop-blur bg-[#181818]/80 border border-white/10;
   }
 }
+
+@keyframes pulse-slow {
+  0% {
+    transform: scale(1) translate(-50%, 0);
+  }
+  50% {
+    transform: scale(1.1) translate(-50%, 0);
+  }
+  100% {
+    transform: scale(1) translate(-50%, 0);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 12s ease-in-out infinite;
+}
+
