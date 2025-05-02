@@ -2,64 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-
-/* Import Satoshi via @font-face if using local font file, else CDN or npm */
-@font-face {
-  font-family: 'Satoshi';
-  src: url('/Satoshi-Variable.ttf') format('truetype');
-  font-weight: 100 900;
-  font-display: swap;
+/* Custom variables (optional) */
+:root {
+  --blur-color: rgba(255, 255, 255, 0.1);
 }
 
-html {
-  /* Antialiasing for crisp type */
+html,
+body {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  background-color: black;
+  color: white;
+  font-family: 'Satoshi', sans-serif;
+}
+
+/* Optional smoothing */
+* {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* Use min-screen dark bg everywhere for Framer-style consistency */
-  background: #141414;
+  box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  color: #e6e6e6;
-  background: #141414;
-  font-family: 'Satoshi', 'Inter', Arial, sans-serif;
-  font-feature-settings: 'ss01', 'cv01', 'cv11';
+/* Background blur ball — to match Framer magic */
+.blur-ball {
+  position: absolute;
+  top: -200px;
+  left: -200px;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(ellipse at center, #4f46e5 0%, #0ea5e9 100%);
+  filter: blur(160px);
+  z-index: -1;
+  opacity: 0.6;
+  animation: pulse 8s ease-in-out infinite;
 }
 
-::-webkit-scrollbar {
-  width: 8px;
-  background: transparent;
-}
-::-webkit-scrollbar-thumb {
-  background: #252525;
-  border-radius: 6px;
-}
-
-@layer utilities {
-  .glass {
-    @apply backdrop-blur-lg bg-white/5 border border-white/10;
-  }
-  .matte-glass {
-    @apply backdrop-blur bg-[#181818]/80 border border-white/10;
-  }
-}
-
-@keyframes pulse-slow {
-  0% {
-    transform: scale(1) translate(-50%, 0);
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
   }
   50% {
-    transform: scale(1.1) translate(-50%, 0);
-  }
-  100% {
-    transform: scale(1) translate(-50%, 0);
+    transform: scale(1.05);
   }
 }
-
-.animate-pulse-slow {
-  animation: pulse-slow 12s ease-in-out infinite;
-}
-
