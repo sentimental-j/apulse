@@ -1,13 +1,23 @@
-import "./globals.css";
-import { Satoshi } from "next/font/local";
-import type { Metadata } from "next";
-import ParticlesBackground from "@/components/ParticlesBackground";
+// File: app/layout.tsx
 
-const satoshi = Satoshi({
+import "./globals.css";
+import type { Metadata } from "next";
+import localFont from "next/font/local";
+
+const satoshi = localFont({
   src: [
-    { path: "../public/Satoshi-Variable.ttf", weight: "400", style: "normal" },
-    { path: "../public/Satoshi-VariableItalic.ttf", weight: "400", style: "italic" },
+    {
+      path: "../public/Satoshi-Variable.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/Satoshi-VariableItalic.ttf",
+      weight: "400",
+      style: "italic",
+    },
   ],
+  variable: "--font-satoshi",
   display: "swap",
 });
 
@@ -16,15 +26,15 @@ export const metadata: Metadata = {
   description: "AI-powered website builder that feels like magic.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en" className="bg-black text-white">
-      <body className={`${satoshi.className} antialiased`}>
-        <ParticlesBackground />
-        <div className="fixed inset-0 z-10 pointer-events-none">
-          <img src="/grain.svg" className="w-full h-full object-cover opacity-10 mix-blend-soft-light" alt="grain" />
-        </div>
-        <main className="relative z-20">{children}</main>
+    <html lang="en" className={`${satoshi.variable} scroll-smooth`}>
+      <body className="bg-black text-white font-sans antialiased">
+        {children}
       </body>
     </html>
   );
