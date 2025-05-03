@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom variables (optional) */
+/* Font & root vars */
 :root {
-  --blur-color: rgba(255, 255, 255, 0.1);
+  --font-satoshi: 'Satoshi', sans-serif;
 }
 
 html,
@@ -12,37 +12,30 @@ body {
   padding: 0;
   margin: 0;
   scroll-behavior: smooth;
-  background-color: black;
+  background-color: #000;
   color: white;
-  font-family: 'Satoshi', sans-serif;
+  font-family: var(--font-satoshi);
 }
 
-/* Optional smoothing */
+/* Smoothed font rendering & box sizing */
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
 }
 
-/* Background blur ball — to match Framer magic */
-.blur-ball {
-  position: absolute;
-  top: -200px;
-  left: -200px;
-  width: 800px;
-  height: 800px;
-  background: radial-gradient(ellipse at center, #4f46e5 0%, #0ea5e9 100%);
-  filter: blur(160px);
-  z-index: -1;
-  opacity: 0.6;
-  animation: pulse 8s ease-in-out infinite;
+/* Triangle particle canvas container */
+#tsparticles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -10;
+  width: 100%;
+  height: 100%;
 }
 
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
+/* Optional extra shine class for reuse */
+.frame-shine {
+  position: relative;
+  overflow: hidden;
 }
