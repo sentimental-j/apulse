@@ -1,7 +1,9 @@
-// File: components/TemplateBlock.tsx
-
 "use client";
 import { motion } from "framer-motion";
+import withFrameShine from "./withFrameShine";
+import TemplateCard from "./TemplateCard";
+
+const ShinyTemplate = withFrameShine(TemplateCard);
 
 const mockups = [
   { id: 1, label: "E-commerce", color: "#0ea5e9" },
