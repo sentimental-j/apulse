@@ -1,67 +1,43 @@
+// File: components/TemplateBlock.tsx
+
 "use client";
 import { motion } from "framer-motion";
 
-export function TemplateBlock({ type, section }) {
-  if (!section) return null;
-  switch (type) {
-    case "hero":
-      return (
-        <motion.section
-          className="py-16 md:py-24 text-center"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h1 className="text-5xl md:text-6xl font-bold mb-5 bg-gradient-to-tr from-accentPink via-white to-accentBronze bg-clip-text text-transparent drop-shadow-hero-glow">
-            {section.headline}
-          </h1>
-          <p className="text-xl text-white/80">{section.sub}</p>
-        </motion.section>
-      );
-    case "about":
-      return (
-        <motion.section
-          className="max-w-2xl mx-auto pb-14 text-center"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
-          <h2 className="text-3xl font-semibold mb-3">{section.title}</h2>
-          <p className="text-white/75">{section.text}</p>
-        </motion.section>
-      );
-    case "services":
-      return (
-        <motion.section
-          className="max-w-2xl mx-auto pb-14 text-center"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <h2 className="text-3xl font-semibold mb-3">{section.title}</h2>
-          <ul className="list-none text-lg text-white/80 space-y-2">
-            {section.items?.map((x, i) => (
-              <li key={i}>• {x}</li>
-            ))}
-          </ul>
-        </motion.section>
-      );
-    case "contact":
-      return (
-        <motion.section
-          className="max-w-2xl mx-auto pb-8 text-center"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          <h2 className="text-3xl font-semibold mb-3">{section.title}</h2>
-          <p>{section.text}</p>
-          <button className="mt-6 px-8 py-3 rounded-xl bg-gradient-to-tr from-accentPink to-accentBronze text-black font-bold shadow-lg transition hover:opacity-90">
-            {section.action}
-          </button>
-        </motion.section>
-      );
-    default:
-      return null;
-  }
+const mockups = [
+  { id: 1, label: "E-commerce", color: "#0ea5e9" },
+  { id: 2, label: "Portfolio", color: "#8b5cf6" },
+  { id: 3, label: "Landing Page", color: "#ec4899" },
+  { id: 4, label: "SaaS", color: "#f59e0b" },
+];
+
+export default function TemplateBlock() {
+  return (
+    <section className="w-full px-6 py-24 max-w-6xl mx-auto" id="start">
+      <h2 className="text-3xl md:text-4xl font-semibold text-center mb-12">
+        Choose from beautiful, AI-optimized templates
+      </h2>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {mockups.map((template, index) => (
+          <motion.div
+            key={template.id}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1, duration: 0.6 }}
+            viewport={{ once: true }}
+            className="bg-white/5 p-6 rounded-xl border border-white/10 shadow hover:scale-105 transition-transform cursor-pointer"
+          >
+            <div
+              className="w-full h-40 rounded-md mb-4"
+              style={{ background: template.color }}
+            />
+            <h3 className="text-lg font-medium">{template.label}</h3>
+            <p className="text-sm opacity-70 mt-1">
+              Preview coming soon...
+            </p>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
 }
