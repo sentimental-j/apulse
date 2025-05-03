@@ -1,12 +1,12 @@
 // File: app/page.tsx
-import Hero from "@/components/Hero";
-import NavBar from "@/components/NavBar";
-import CardGrid from "@/components/CardGrid";
-import TemplateBlock from "@/components/TemplateBlock";
-import ParticlesBackground from "@/components/ParticlesBackground";
-import MockupEngine from "@/components/MockupEngine/index";
-import FrameShine from "@/components/FrameShine";
-import Footer from "@/components/Footer";
+import Hero from "../components/Hero";
+import NavBar from "../components/NavBar";
+import CardGrid from "../components/CardGrid";
+import TemplateBlock from "../components/TemplateBlock";
+import ParticlesBackground from "../components/ParticlesBackground";
+import MockupEngine from "../components/MockupEngine/index";
+import FrameShine from "../components/FrameShine";
+import Footer from "../components/Footer";
 
 export default function Home() {
   return (
