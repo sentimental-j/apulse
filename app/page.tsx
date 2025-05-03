@@ -5,29 +5,43 @@ import CardGrid from "@/components/CardGrid";
 import TemplateBlock from "@/components/TemplateBlock";
 import ParticlesBackground from "@/components/ParticlesBackground";
 import MockupEngine from "@/components/MockupEngine/index";
+import FrameShine from "@/components/FrameShine";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <main className="relative min-h-screen w-full overflow-hidden bg-black text-white font-sans">
-      {/* Background animation */}
+      {/* Stationary animated background triangles */}
       <ParticlesBackground />
 
-      {/* Navigation bar */}
+      {/* Navigation bar with logo and CTA */}
       <NavBar />
 
-      {/* Hero section */}
+      {/* Hero section with motion headline */}
       <Hero />
 
-      {/* Sliding cards */}
+      {/* Section with sliding cards/features */}
       <CardGrid />
 
-      {/* Template selection block */}
+      {/* Template selection block with mock labels */}
       <TemplateBlock />
 
-      {/* AI Builder Chat + Mockup preview (placeholder for now) */}
+      {/* MockupEngine (AI Builder + Preview block placeholder) */}
       <MockupEngine />
 
-      {/* To be continued: Reviews, FAQ, Footer... */}
+      {/* Frame shine animation (can be reused on other elements) */}
+      <FrameShine />
+
+      {/* Footer section (can include contact, social links, etc.) */}
+      <Footer />
+
+      {/* TODOs for next updates:
+          - Reviews.tsx
+          - FAQ.tsx
+          - Payment Page
+          - Contact Page (GPT-based form)
+          - Easter Egg interactive page
+      */}
     </main>
   );
 }
