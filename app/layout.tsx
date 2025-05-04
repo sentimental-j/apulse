@@ -1,43 +1,23 @@
-// File: app/layout.tsx
-
 import "./globals.css";
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Satoshi } from "next/font/google";
 
-const satoshi = localFont({
-  src: [
-    {
-      path: "../public/Satoshi-Variable.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../public/Satoshi-VariableItalic.ttf",
-      weight: "400",
-      style: "italic",
-    },
-  ],
-  variable: "--font-satoshi",
-  display: "swap",
-});
+const satoshi = Satoshi({ subsets: ["latin"], weight: ["400", "700"] });
 
 export const metadata: Metadata = {
   title: "Apulse",
-  description: "AI-powered website builder that feels like magic.",
+  description: "AI-powered website builder",
 };
 
-{/* Add this anywhere inside your layout component but outside page content */}
-<div className="grain-overlay" />
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${satoshi.variable} scroll-smooth`}>
-      <body className="bg-black text-white font-sans antialiased">
-        {children}
+    <html lang="en" className={satoshi.className}>
+      <body>
+        {/* Grain layer */}
+        <div id="grain" />
+        
+        {/* Blur + content */}
+        <div className="blur-wrapper">{children}</div>
       </body>
     </html>
   );
