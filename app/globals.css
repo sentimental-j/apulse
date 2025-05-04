@@ -29,59 +29,28 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: -10;
+  z-index: -20;
   width: 100%;
   height: 100%;
 }
 
-/* Optional extra shine class for reuse */
-.frame-shine {
-  position: relative;
-  overflow: hidden;
-}
-
-/* Grain overlay for depth and vibe */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 50;
-  pointer-events: none;
-  background-image:
-    repeating-linear-gradient(45deg, rgba(255,255,255,0.015) 0px, transparent 2px),
-    repeating-linear-gradient(-45deg, rgba(255,255,255,0.015) 0px, transparent 2px);
-  opacity: 0.07;
-  mix-blend-mode: soft-light;
-}
-
-/* Optional smoother gradient blending */
-body::after {
-  content: "";
+/* Grain Overlay */
+.grain-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 50;
   width: 100%;
   height: 100%;
+  z-index: -5;
   pointer-events: none;
-  background-image: url("/grain.gif");
+  background-image: url('/grain.png');
   background-repeat: repeat;
-  background-size: 300px 300px;
-  opacity: 0.05;
-  mix-blend-mode: overlay;
-  animation: grainMovement 1s steps(10) infinite;
+  background-size: 128px 128px;
+  opacity: 0.075;
 }
 
-@keyframes grainMovement {
-  0% { transform: translate(0, 0); }
-  10% { transform: translate(-5%, -5%); }
-  20% { transform: translate(-10%, 5%); }
-  30% { transform: translate(5%, -10%); }
-  40% { transform: translate(-5%, 15%); }
-  50% { transform: translate(-10%, 5%); }
-  60% { transform: translate(15%, 0); }
-  70% { transform: translate(0, 10%); }
-  80% { transform: translate(-15%, 0); }
-  90% { transform: translate(10%, 5%); }
-  100% { transform: translate(0, 0); }
+/* Optional extra shine class */
+.frame-shine {
+  position: relative;
+  overflow: hidden;
 }
