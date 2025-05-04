@@ -26,6 +26,9 @@ export const metadata: Metadata = {
   description: "AI-powered website builder that feels like magic.",
 };
 
+{/* Add this anywhere inside your layout component but outside page content */}
+<div className="grain-overlay" />
+
 export default function RootLayout({
   children,
 }: {
